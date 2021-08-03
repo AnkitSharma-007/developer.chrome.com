@@ -39,10 +39,13 @@ module.exports = function (collections) {
     .filter(filterOutDrafts);
 
   // The i18n for this file exposes top-level object keys of valid tags.
-  /** @type {{[tag: string]: unknown}} */
-  const supportedTags = YAML.safeLoad(
-    fs.readFileSync(path.join(__dirname, '../_data/i18n/tags.yml'), 'utf-8')
-  );
+  /** @type Tag */
+  const supportedTags =
+    /** @type Tag */ (
+      /** @type TODO */ YAML.load(
+        fs.readFileSync(path.join(__dirname, '../_data/i18n/tags.yml'), 'utf-8')
+      )
+    ) || {};
 
   /**
    * Iterates over every post in order to place them in the proper tag collections.
@@ -98,6 +101,7 @@ module.exports = function (collections) {
           posts: locales.reduce((o, key) => ({...o, [key]: []}), {}),
           title: 'i18n.tags.chrome',
           overrideTitle: chromeTag.replace('chrome-', 'Chrome '),
+          url: `/tags/${chromeTag}/`,
         };
       }
       tags[chromeTag].posts[item.data.locale].push(item);
@@ -134,6 +138,7 @@ module.exports = function (collections) {
            * Sets the title to the i18n value for the tag.
            */
           title: 'i18n.tags.' + postsTag,
+          url: `/tags/${postsTag}/`,
         };
       }
       tags[postsTag].posts[item.data.locale].push(item);

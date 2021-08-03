@@ -46,20 +46,15 @@ module.exports = locale => ({
     before: tags => {
       /** @type PaginatedPage[] */
       let paginated = [];
-
       for (const tag of tags) {
         const posts = tag.posts[locale];
         if (!posts.length) {
           continue;
         }
-
-        const more = addPagination(posts, locale + '/tags/' + tag.key, {
-          title: tag.overrideTitle ?? i18n(tag.title, locale),
-          key: tag.key,
-        });
-        paginated = paginated.concat(more);
+        tag['elements'] = tag.posts[locale];
+        tag.title = tag.overrideTitle ?? i18n(tag.title, locale);
+        paginated = paginated.concat(addPagination(tag));
       }
-
       return paginated;
     },
   },

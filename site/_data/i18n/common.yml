@@ -90,6 +90,7 @@ toc:
 
 tags:
   en: 'Tags'
+  es: 'Etiquetas'
 
 documentation:
   en: 'Documentation'
@@ -101,11 +102,13 @@ skip_to_content:
   en: 'Skip to content'
   es: 'Saltar al contenido'
 
-newer_posts:
-  en: 'Newer posts'
+next:
+  en: 'Next'
+  es: 'Siguiente'
 
-older_posts:
-  en: 'Older posts'
+back:
+  en: 'Back'
+  es: 'Atrás'
 
 external_link:
   en: 'External link'
@@ -114,9 +117,6 @@ external_link:
 close:
   en: 'Close'
   es: 'Cerrar'
-
-back:
-  en: 'Back'
 
 current_release_description:
   en: 'The current stable version of Chrome is'
@@ -129,3 +129,7 @@ current_release_label:
 
 future_release_label:
   en: 'Beta will promote to stable on'
+
+authors:
+  en: 'Authors'
+  es: 'Autores'

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,22 +15,16 @@
  */
 
 declare global {
-  export interface LocalizedTag {
-    key: string;
-    title: string;
-    posts: EleventyCollectionItem[];
-  }
-  export interface Tag {
-    key: string;
-    title: string;
-    overrideTitle?: string;
-    posts: {
-      [locale: string]: EleventyCollectionItem[];
+  export interface I18nAuthor {
+    title: {
+      [lang: string]: string;
     };
-    url: string;
+    description: {
+      [lang: string]: string;
+    };
   }
-  export interface Tags {
-    [tag: string]: Tag;
+  export interface I18nAuthors {
+    [key: string]: I18nAuthor;
   }
 }
 

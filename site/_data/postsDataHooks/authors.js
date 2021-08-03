@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-declare global {
-  export interface LocalizedTag {
-    key: string;
-    title: string;
-    posts: EleventyCollectionItem[];
-  }
-  export interface Tag {
-    key: string;
-    title: string;
-    overrideTitle?: string;
-    posts: {
-      [locale: string]: EleventyCollectionItem[];
-    };
-    url: string;
-  }
-  export interface Tags {
-    [tag: string]: Tag;
-  }
-}
+const {index, individual} = require('./utils');
 
-// empty export to keep file a module
-export {};
+/**
+ * @param {AuthorsItem[]} authors
+ * @param {string} locale
+ * @return {PaginatedPage[]}
+ */
+const authorsIndex = (authors, locale) => {
+  return index(authors, locale);
+};
+
+/**
+ * @param {AuthorsItem[]} authors
+ * @param {string} locale
+ * @return {PaginatedPage[]}
+ */
+const authorsIndividual = (authors, locale) => individual(authors, locale);
+
+module.exports = {
+  index: authorsIndex,
+  individual: authorsIndividual,
+};
