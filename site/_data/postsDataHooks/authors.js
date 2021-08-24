@@ -19,7 +19,7 @@ const {index, individual} = require('./utils');
 /**
  * @param {AuthorsItem[]} authors
  * @param {string} locale
- * @return {PaginatedPage[]}
+ * @return {AuthorsItem[]}
  */
 const authorsIndex = (authors, locale) => {
   return index(authors, locale);

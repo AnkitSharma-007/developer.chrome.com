@@ -32,7 +32,7 @@
         {%- set author = postsData.authors[authorId] -%}
         {{- sep() -}}
         {%- if author -%}
-          <a href="{{ author.url }}" class="author-link">{{ author.title | i18n(locale) }}</a>
+          <a href="{{ author.url }}" class="surface display-inline-flex color-text">{{ author.title | i18n(locale) }}</a>
         {%- else -%}
           {{ authorId }}
         {%- endif -%}

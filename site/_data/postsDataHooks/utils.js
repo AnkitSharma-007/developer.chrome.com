@@ -25,14 +25,14 @@ const {i18n} = require('../../_filters/i18n');
 /**
  * @param {VirtualCollectionItem[]} items
  * @param {string} locale
- * @return {PaginatedPage[]}
+ * @return {VirtualCollectionItem[]}
  */
 const index = (items, locale) => {
   const itemsWithPosts = items
-    .filter(item => item.elements.length > 0)
+    .filter(item => item.elements?.length)
     .sort((a, b) => i18n(a.title, locale).localeCompare(i18n(b.title, locale)));
 
-  return addPagination(itemsWithPosts);
+  return itemsWithPosts;
 };
 
 /**
