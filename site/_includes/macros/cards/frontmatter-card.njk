@@ -3,7 +3,6 @@
 {% macro frontMatterCard(fm) %}
 <div class="blog-card rounded-lg pad-300 md:pad-400 width-full">
   {% if fm.hero %}
-    {% set alt = fm.title or 'Unlabeled image' %}
     {#
       The thumbnail image defines its own bottom margin because it's optional
       and needs to push the title down. If the title defined its own top
@@ -15,7 +14,7 @@
         {% Img
           class="rounded-100 object-fit-cover width-full",
           src=fm.hero,
-          alt=alt,
+          alt=fm.title,
           width="278",
           height="156",
           sizes="(min-width: 36em) 330px, calc(100vw - 82px)"

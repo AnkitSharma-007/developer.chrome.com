@@ -11,7 +11,6 @@ module.exports = function filterByLocale(fMData, locale = defaultLocale) {
   const filteredFrontMatter = new Map();
   for (const element of fMData) {
     if ([locale, defaultLocale].includes(element.locale)) {
-      filteredFrontMatter.set(element.url, element);
       if (filteredFrontMatter.has(element.url) && element.locale === locale) {
         filteredFrontMatter.set(element.url, element);
       } else if (!filteredFrontMatter.has(element.url)) {

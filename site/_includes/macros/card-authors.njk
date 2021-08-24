@@ -12,7 +12,7 @@
       {% if author.image %}
       <a href="{{ author.url }}" class="card-authors__image">
         {% Img
-        class="flex-shrink-none width-600 height-600",
+          class="flex-shrink-none width-600 height-600",
           src=author.image,
           alt=author.title | i18n(locale),
           width="40",
@@ -32,7 +32,7 @@
         {%- set author = postsData.authors[authorId] -%}
         {{- sep() -}}
         {%- if author -%}
-          <a href="{{ author.url }}">{{ author.title | i18n(locale) }}</a>
+          <a href="{{ author.url }}" class="author-link">{{ author.title | i18n(locale) }}</a>
         {%- else -%}
           {{ authorId }}
         {%- endif -%}

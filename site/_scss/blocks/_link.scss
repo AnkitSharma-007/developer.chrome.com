@@ -1,3 +1,14 @@
 .link {
   @extend %link;
 }
+
+.author-link {
+  color: var(--color-secondary-text);
+  text-decoration: none;
+
+  &:hover {
+    background-color: revert;
+    color: revert;
+    text-decoration: revert;
+  }
+}

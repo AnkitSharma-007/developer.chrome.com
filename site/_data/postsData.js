@@ -63,7 +63,7 @@ const fileContents = files
       url,
     };
   })
-  .filter(f => !!f.date && !!f.url)
+  .filter(f => !!f.date && !!f.url && !!f.title)
   .sort((a, b) => a.date.getTime() - b.date.getTime());
 
 for (const fileContent of fileContents) {

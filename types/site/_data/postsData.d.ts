@@ -22,7 +22,7 @@ declare global {
   }
 
   export interface FrontMatterData {
-    title?: string | number;
+    title: string;
     layout?: string;
     description?: string;
     subhead?: string;
